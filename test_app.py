@@ -41,10 +41,6 @@ def test_delivery_status_delayed():
     assert get_delivery_status(5) == "Delayed"
 
 
-def test_intentional_failure():
-    assert calculate_total(100, 2) == 500
-
-
 def test_delivery_status_rejects_negative_days():
     with pytest.raises(ValueError):
         get_delivery_status(-1)
