@@ -1,7 +1,7 @@
 
 import pytest
 
-from app import calculate_total, is_palindrome, get_delivery_status
+from dump.app import calculate_total, is_palindrome, get_delivery_status
 
 
 def test_calculate_total():
