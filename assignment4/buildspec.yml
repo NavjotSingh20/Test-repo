@@ -1,0 +1,30 @@
+
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.12
+    commands:
+      - echo "Preparing Elastic Beanstalk deployment package"
+
+  pre_build:
+    commands:
+      - python --version
+      - echo "Checking assignment 4 source files"
+      - test -f assignment4/application.py
+      - test -f assignment4/requirements.txt
+
+  build:
+    commands:
+      - mkdir -p deployment
+      - cp assignment4/application.py deployment/application.py
+      - cp assignment4/requirements.txt deployment/requirements.txt
+      - echo "Deployment package prepared"
+
+artifacts:
+  base-directory: deployment
+  files:
+    - application.py
+    - requirements.txt
+  discard-paths: yes
